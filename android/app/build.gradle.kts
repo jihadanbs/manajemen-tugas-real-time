@@ -18,7 +18,11 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:5000/\"") // Emulator
+        }
         release {
+            buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:5000/\"") // Production
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -45,4 +49,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.jwtdecode)
+    implementation(libs.socketio)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
 }
